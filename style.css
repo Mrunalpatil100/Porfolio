@@ -1,75 +1,117 @@
-/* =====================================================
-   MRUNAL PATIL — MODERN TECH PORTFOLIO
-   ===================================================== */
+/* =========================================================
+   MRUNAL PATIL — DATA / AI PORTFOLIO
+   COMPLETE MODERN CSS
+========================================================= */
+
+/* ---------- GOOGLE FONT ---------- */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
+
+/* ---------- VARIABLES ---------- */
+
 :root {
     --bg: #050816;
-    --bg-secondary: #0b1120;
+    --bg-light: #0b1220;
     --card: rgba(15, 23, 42, 0.75);
-    --border: rgba(148, 163, 184, 0.15);
-    --text: #f8fafc;
+
+    --primary: #38bdf8;
+    --primary-dark: #0284c7;
+    --secondary: #8b5cf6;
+
+    --white: #f8fafc;
+    --text: #e2e8f0;
     --muted: #94a3b8;
-    --blue: #38bdf8;
-    --blue-dark: #0284c7;
-    --purple: #8b5cf6;
-    --green: #22c55e;
+
+    --border: rgba(148, 163, 184, 0.16);
+
+    --shadow:
+        0 20px 50px rgba(0, 0, 0, 0.25);
 }
 
-/* ==============================
+
+/* =========================================================
    RESET
-============================== */
+========================================================= */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;
 }
 
 html {
+    scroll-behavior: smooth;
     scroll-padding-top: 90px;
 }
 
 body {
-    font-family: "Inter", sans-serif;
+    font-family: "Inter", Arial, sans-serif;
+
     background:
-        radial-gradient(circle at 15% 10%, rgba(56, 189, 248, 0.12), transparent 30%),
-        radial-gradient(circle at 85% 20%, rgba(139, 92, 246, 0.12), transparent 30%),
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(56, 189, 248, 0.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(139, 92, 246, 0.12),
+            transparent 30%
+        ),
         var(--bg);
+
     color: var(--text);
+
     line-height: 1.7;
+
     overflow-x: hidden;
 }
 
-/* subtle grid */
+
+/* ---------- BACKGROUND GRID ---------- */
 
 body::before {
     content: "";
+
     position: fixed;
+
     inset: 0;
+
     pointer-events: none;
-    opacity: 0.25;
 
     background-image:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+        linear-gradient(
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        );
 
     background-size: 50px 50px;
+
+    opacity: 0.5;
+
     z-index: -1;
 }
 
-/* ==============================
+
+/* =========================================================
    NAVBAR
-============================== */
+========================================================= */
 
 header {
     position: sticky;
+
     top: 0;
-    z-index: 999;
+
+    z-index: 1000;
 
     background: rgba(5, 8, 22, 0.78);
+
     backdrop-filter: blur(18px);
 
     border-bottom: 1px solid var(--border);
@@ -77,99 +119,175 @@ header {
 
 nav {
     max-width: 1150px;
+
     margin: auto;
 
     padding: 18px 25px;
 
     display: flex;
-    justify-content: space-between;
+
     align-items: center;
+
+    justify-content: space-between;
 }
 
 nav h2 {
-    font-size: 22px;
+    font-size: 23px;
+
     font-weight: 800;
 
-    background: linear-gradient(
-        90deg,
-        var(--blue),
-        var(--purple)
-    );
+    letter-spacing: -0.5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--primary),
+            var(--secondary)
+        );
 
     -webkit-background-clip: text;
+
     -webkit-text-fill-color: transparent;
 }
 
 nav div {
     display: flex;
+
     gap: 28px;
 }
 
 nav a {
-    color: #cbd5e1;
+    color: var(--muted);
+
     text-decoration: none;
 
     font-size: 14px;
+
     font-weight: 500;
 
-    transition: 0.3s;
+    position: relative;
+
+    transition: 0.3s ease;
+}
+
+nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -7px;
+
+    width: 0;
+
+    height: 2px;
+
+    background: var(--primary);
+
+    transition: 0.3s ease;
 }
 
 nav a:hover {
-    color: var(--blue);
+    color: var(--white);
 }
 
-/* ==============================
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a.active {
+    color: var(--primary);
+}
+
+
+/* =========================================================
    MAIN
-============================== */
+========================================================= */
 
 main {
     max-width: 1150px;
+
     margin: auto;
+
     padding: 0 25px;
 }
 
-/* ==============================
-   HERO
-============================== */
+
+/* =========================================================
+   HERO SECTION
+========================================================= */
 
 .hero {
     min-height: 720px;
 
     display: flex;
+
     flex-direction: column;
+
     justify-content: center;
 
     position: relative;
+
     padding: 100px 0;
 }
 
-/* glowing orb */
+
+/* Hero glowing circle */
 
 .hero::before {
     content: "";
 
     position: absolute;
 
-    width: 350px;
-    height: 350px;
+    width: 400px;
 
-    right: -100px;
-    top: 100px;
+    height: 400px;
 
-    background: rgba(56, 189, 248, 0.12);
+    right: -120px;
 
-    filter: blur(90px);
+    top: 80px;
 
     border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(56,189,248,0.18),
+            transparent 65%
+        );
+
+    filter: blur(30px);
+
+    animation: floatGlow 6s ease-in-out infinite;
 
     z-index: -1;
 }
 
+
+@keyframes floatGlow {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-25px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* Small hero heading */
+
 .small-title {
-    color: var(--blue);
+    color: var(--primary);
 
     font-size: 13px;
+
     font-weight: 700;
 
     letter-spacing: 3px;
@@ -179,31 +297,46 @@ main {
     text-transform: uppercase;
 }
 
-.hero h1 {
-    max-width: 850px;
 
-    font-size: clamp(48px, 7vw, 82px);
+/* Main heading */
+
+.hero h1 {
+    max-width: 900px;
+
+    font-size: clamp(
+        48px,
+        7vw,
+        82px
+    );
 
     line-height: 1.05;
 
-    letter-spacing: -3px;
+    letter-spacing: -4px;
 
-    margin-bottom: 25px;
+    margin-bottom: 28px;
 
-    color: white;
+    color: var(--white);
 }
 
-.hero h1::first-line {
-    background: linear-gradient(
-        90deg,
-        #ffffff,
-        #38bdf8,
-        #8b5cf6
-    );
+
+/* Gradient heading */
+
+.hero h1 {
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff 0%,
+            #38bdf8 45%,
+            #8b5cf6 100%
+        );
 
     -webkit-background-clip: text;
+
     -webkit-text-fill-color: transparent;
 }
+
+
+/* Hero description */
 
 .hero > p:not(.small-title) {
     max-width: 720px;
@@ -217,58 +350,79 @@ main {
     margin-bottom: 35px;
 }
 
-/* button */
+
+/* =========================================================
+   BUTTON
+========================================================= */
 
 .button {
     display: inline-flex;
 
+    align-items: center;
+
+    justify-content: center;
+
     width: fit-content;
 
-    padding: 13px 24px;
+    padding: 13px 25px;
 
     border-radius: 9px;
 
-    background: linear-gradient(
-        135deg,
-        var(--blue-dark),
-        var(--purple)
-    );
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary-dark),
+            var(--secondary)
+        );
 
     color: white;
 
     text-decoration: none;
 
+    font-size: 14px;
+
     font-weight: 600;
 
-    border: 1px solid rgba(255,255,255,0.12);
+    border: 1px solid
+        rgba(255,255,255,0.12);
 
     box-shadow:
-        0 10px 30px rgba(2,132,199,0.2);
+        0 10px 30px
+        rgba(2,132,199,0.2);
 
-    transition: 0.3s;
+    transition: all 0.3s ease;
 }
 
 .button:hover {
     transform: translateY(-4px);
 
     box-shadow:
-        0 15px 40px rgba(56,189,248,0.3);
+        0 15px 40px
+        rgba(56,189,248,0.3);
 }
 
-/* ==============================
+
+/* =========================================================
    SECTIONS
-============================== */
+========================================================= */
 
 section {
     padding: 100px 0;
+
+    opacity: 1;
 }
+
+
+/* Section headings */
 
 section h2 {
     font-size: 38px;
 
-    margin-bottom: 30px;
+    color: var(--white);
 
     letter-spacing: -1px;
+
+    margin-bottom: 30px;
 }
 
 section h2::after {
@@ -277,42 +431,48 @@ section h2::after {
     display: block;
 
     width: 55px;
+
     height: 4px;
 
     margin-top: 10px;
 
     border-radius: 20px;
 
-    background: linear-gradient(
-        90deg,
-        var(--blue),
-        var(--purple)
-    );
+    background:
+        linear-gradient(
+            90deg,
+            var(--primary),
+            var(--secondary)
+        );
 }
 
 section p {
+    max-width: 850px;
+
     color: var(--muted);
 
     font-size: 16px;
 
-    max-width: 850px;
+    margin-bottom: 15px;
 }
 
-/* ==============================
+
+/* =========================================================
    ABOUT
-============================== */
+========================================================= */
 
 #about {
     position: relative;
 }
 
 #about p {
-    margin-bottom: 15px;
+    max-width: 850px;
 }
 
-/* ==============================
+
+/* =========================================================
    SKILLS
-============================== */
+========================================================= */
 
 .skills {
     display: flex;
@@ -325,9 +485,10 @@ section p {
 }
 
 .skills span {
-    padding: 11px 17px;
+    padding: 11px 18px;
 
-    background: rgba(15, 23, 42, 0.7);
+    background:
+        rgba(15, 23, 42, 0.75);
 
     border: 1px solid var(--border);
 
@@ -339,25 +500,32 @@ section p {
 
     font-weight: 600;
 
-    transition: 0.3s;
-
     backdrop-filter: blur(10px);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .skills span:hover {
     transform: translateY(-5px);
 
-    border-color: rgba(56,189,248,0.5);
+    color: var(--primary);
 
-    color: var(--blue);
+    border-color:
+        rgba(56,189,248,0.45);
 
     box-shadow:
-        0 10px 30px rgba(56,189,248,0.1);
+        0 10px 30px
+        rgba(56,189,248,0.1);
 }
 
-/* ==============================
+
+/* =========================================================
    PROJECTS
-============================== */
+========================================================= */
 
 .project-container {
     display: grid;
@@ -373,9 +541,9 @@ section p {
 .project {
     position: relative;
 
-    padding: 30px;
+    min-height: 310px;
 
-    min-height: 300px;
+    padding: 30px;
 
     background:
         linear-gradient(
@@ -384,38 +552,47 @@ section p {
             rgba(15,23,42,0.65)
         );
 
-    border: 1px solid var(--border);
+    border:
+        1px solid var(--border);
 
     border-radius: 16px;
 
     overflow: hidden;
 
-    transition: 0.35s;
+    box-shadow: var(--shadow);
 
-    box-shadow:
-        0 15px 40px rgba(0,0,0,0.2);
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
-/* card glow */
+
+/* Project glow */
 
 .project::before {
     content: "";
 
     position: absolute;
 
-    width: 150px;
-    height: 150px;
+    width: 180px;
 
-    top: -80px;
-    right: -80px;
+    height: 180px;
 
-    background: var(--blue);
+    top: -100px;
 
-    opacity: 0.08;
-
-    filter: blur(40px);
+    right: -100px;
 
     border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(56,189,248,0.3),
+            transparent 70%
+        );
+
+    filter: blur(20px);
 }
 
 .project:hover {
@@ -425,12 +602,14 @@ section p {
         rgba(56,189,248,0.35);
 
     box-shadow:
-        0 25px 60px rgba(0,0,0,0.35),
-        0 0 30px rgba(56,189,248,0.06);
+        0 25px 60px
+        rgba(0,0,0,0.4);
 }
 
 .project h3 {
-    color: white;
+    position: relative;
+
+    color: var(--white);
 
     font-size: 20px;
 
@@ -438,6 +617,10 @@ section p {
 }
 
 .project p {
+    position: relative;
+
+    color: var(--muted);
+
     font-size: 14px;
 
     margin-bottom: 14px;
@@ -448,17 +631,19 @@ section p {
 }
 
 .project a {
+    position: relative;
+
     display: inline-block;
 
     margin-top: 12px;
 
-    color: var(--blue);
+    color: var(--primary);
 
     text-decoration: none;
 
     font-weight: 600;
 
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
 .project a:hover {
@@ -467,16 +652,17 @@ section p {
     transform: translateX(5px);
 }
 
-/* ==============================
+
+/* =========================================================
    CONTACT
-============================== */
+========================================================= */
 
 #contact {
     text-align: center;
 
     margin: 80px 0;
 
-    padding: 70px 30px;
+    padding: 75px 30px;
 
     background:
         linear-gradient(
@@ -485,26 +671,36 @@ section p {
             rgba(139,92,246,0.08)
         );
 
-    border: 1px solid var(--border);
+    border:
+        1px solid var(--border);
 
     border-radius: 20px;
+
+    box-shadow: var(--shadow);
 }
 
 #contact h2::after {
     margin-left: auto;
+
     margin-right: auto;
 }
 
 #contact p {
-    margin: 0 auto 25px;
+    margin-left: auto;
+
+    margin-right: auto;
+
+    margin-bottom: 25px;
 }
 
-/* ==============================
+
+/* =========================================================
    FOOTER
-============================== */
+========================================================= */
 
 footer {
-    border-top: 1px solid var(--border);
+    border-top:
+        1px solid var(--border);
 
     background: #030712;
 
@@ -514,14 +710,38 @@ footer {
 }
 
 footer p {
+    margin: 0;
+
     color: #64748b;
 
     font-size: 13px;
 }
 
-/* ==============================
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+section.hidden {
+    opacity: 0;
+
+    transform: translateY(30px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+section.show {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
    SCROLLBAR
-============================== */
+========================================================= */
 
 ::-webkit-scrollbar {
     width: 8px;
@@ -538,12 +758,24 @@ footer p {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--blue);
+    background: var(--primary);
 }
 
-/* ==============================
-   MOBILE
-============================== */
+
+/* =========================================================
+   SELECTION
+========================================================= */
+
+::selection {
+    background: rgba(56,189,248,0.25);
+
+    color: white;
+}
+
+
+/* =========================================================
+   MOBILE / TABLET
+========================================================= */
 
 @media (max-width: 850px) {
 
@@ -554,7 +786,7 @@ footer p {
     }
 
     nav div {
-        gap: 15px;
+        gap: 16px;
 
         flex-wrap: wrap;
 
@@ -570,7 +802,7 @@ footer p {
     }
 
     .hero h1 {
-        font-size: 48px;
+        font-size: 50px;
 
         letter-spacing: -2px;
     }
@@ -584,13 +816,18 @@ footer p {
     }
 
     section {
-        padding: 70px 0;
+        padding: 75px 0;
     }
 
     section h2 {
         font-size: 32px;
     }
 }
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width: 500px) {
 
@@ -602,18 +839,32 @@ footer p {
         padding: 15px;
     }
 
+    nav h2 {
+        font-size: 20px;
+    }
+
     nav a {
-        font-size: 13px;
+        font-size: 12px;
+    }
+
+    .hero {
+        min-height: 560px;
     }
 
     .hero h1 {
         font-size: 40px;
+
+        letter-spacing: -1.5px;
     }
 
     .small-title {
-        font-size: 11px;
+        font-size: 10px;
 
-        letter-spacing: 2px;
+        letter-spacing: 1.5px;
+    }
+
+    .hero > p:not(.small-title) {
+        font-size: 15px;
     }
 
     .skills {
@@ -621,8 +872,36 @@ footer p {
     }
 
     .skills span {
-        font-size: 13px;
+        font-size: 12px;
 
         padding: 8px 12px;
+    }
+
+    .project {
+        padding: 24px;
+    }
+
+    #contact {
+        padding: 55px 20px;
+    }
+}
+
+
+/* =========================================================
+   REDUCE ANIMATION FOR ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
     }
 }
